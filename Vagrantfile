@@ -32,8 +32,8 @@ yes | certmgr -ssl -m https://nuget.org
 yes | certmgr -ssl -m https://www.myget.org
 
 # Get demo projects
-mkdir ~/.aspnetdemo
-cd ~/.aspnetdemo
+mkdir ~/aspnetdemo
+cd ~/aspnetdemo
 git clone https://github.com/davidfowl/HelloWorldVNext.git
 
 # Build and run
