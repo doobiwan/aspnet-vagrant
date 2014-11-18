@@ -8,16 +8,16 @@ sed -i 's/#force_color_prompt=yes/force_color_prompt=yes/g' ~/.bashrc
 source ~/.bashrc
 
 # Configure mono repository
-apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb http://download.mono-project.com/repo/debian wheezy main" > /etc/apt/sources.list.d/mono-xamarin.list
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo echo "deb http://download.mono-project.com/repo/debian wheezy main" > /etc/apt/sources.list.d/mono-xamarin.list
 
 # update packages
-apt-get update
-apt-get upgrade -y
-apt-get -qy install git nodejs nodejs-legacy npm unzip mono-complete autoconf automake build-essential libtool
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get -qqy install git nodejs nodejs-legacy npm unzip mono-complete autoconf automake build-essential libtool
 
 # We can use yeoman to scaffold an asp.net project
-npm install -g grunt yo bower generator-aspnet
+sudo npm install -g grunt yo bower generator-aspnet
 
 # Install kvm & latest kre
 curl https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh | sh \
@@ -57,5 +57,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
-  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", inline: $script, privileged: false
 end
