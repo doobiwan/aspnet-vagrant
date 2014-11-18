@@ -18,4 +18,4 @@ And watch the magic happen. To connect to the VM use
 
 ```bash
 vagrant ssh
-'''
+```
