@@ -41,20 +41,26 @@ cd ~/aspnetdemo/HelloWorldVNext/src/hellomvc
 kpm restore
 k web
 
-echo "$(tput setaf 4)Done. To create a new asp.net project create a project folder and enter 'yo aspnet'"
+echo "*****************************************************************"
+echo "* Done."
+echo "* To launch the hellomvc project enter:"
+echo "*"
+echo "*   vagrant ssh"
+echo "*   cd ~/aspnetdemo/HelloWorldVNext/src/hellomvc"
+echo "*   k web"
+echo "* view on http://localhost:5000/"
+echo "*"
+echo "* Create a new asp.net project with 'yo aspnet'"
+echo "*****************************************************************"
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  #config.vm.box = "ubuntu/trusty"
-  #config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   #config.vm.box = "ubuntu/utopic32"
   #config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/utopic/current/utopic-server-cloudimg-i386-vagrant-disk1.box"
   config.vm.box = "ubuntu/utopic64"
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/utopic/current/utopic-server-cloudimg-amd64-vagrant-disk1.box"
-  config.vm.network "forwarded_port", guest: 5001, host: 5001 # 'k web'
-  config.vm.network "forwarded_port", guest: 5004, host: 5004 # 'k web-kestrel'
+  config.vm.network "forwarded_port", guest: 5000, host: 5000 # 'k web'
 
   config.vm.provider "virtualbox" do |vb|
    vb.customize ["modifyvm", :id, "--memory", "1024"]
