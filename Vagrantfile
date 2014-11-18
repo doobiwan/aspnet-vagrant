@@ -16,10 +16,10 @@ apt-get update
 apt-get upgrade -y
 apt-get -qy install git nodejs nodejs-legacy npm unzip mono-complete autoconf automake build-essential libtool
 
-# We use yeoman to scaffold an asp.net project
+# We can use yeoman to scaffold an asp.net project
 npm install -g grunt yo bower generator-aspnet
 
-# Install kvm & specified kre
+# Install kvm & latest kre
 curl https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh | sh \
   && source ~/.kre/kvm/kvm.sh \
   && kvm upgrade
@@ -35,10 +35,10 @@ yes | certmgr -ssl -m https://www.myget.org
 mkdir ~/.aspnetdemo
 cd ~/.aspnetdemo
 git clone https://github.com/davidfowl/HelloWorldVNext.git
+
+# Build and run
 cd ~/aspnet/HelloWorldVNext/src/hellomvc
 kpm restore
-
-# And run!
 k web
 
 echo "$(tput setaf 2)Done. To create a new asp.net project create a project folder and enter 'yo aspnet'"
@@ -49,8 +49,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty"
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-  config.vm.network "forwarded_port", guest: 5001, host: 5001
-  config.vm.network "forwarded_port", guest: 5004, host: 5004
+  config.vm.network "forwarded_port", guest: 5001, host: 5001 # 'k web'
+  config.vm.network "forwarded_port", guest: 5004, host: 5004 # 'k web-kestrel'
   config.vm.synced_folder "./data", "/vagrant_data"
 
   config.vm.provider "virtualbox" do |vb|
