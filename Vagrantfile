@@ -39,7 +39,6 @@ git clone https://github.com/davidfowl/HelloWorldVNext.git
 # Build and run
 cd ~/aspnetdemo/HelloWorldVNext/src/hellomvc
 kpm restore
-k web
 
 echo "*****************************************************************"
 echo "* Done."

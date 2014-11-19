@@ -1,0 +1,28 @@
+## C# nano highlighting.
+##
+
+syntax "C# source" "\.cs$"
+color brightblue "\<(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|new|object|short|ushort|string|base|this|void)\>"
+color cyan "\<(as|break|case|catch|checked|continue|default|do|else|finally|fixed|for|foreach|goto|if|is|lock|return|switch|throw|try|unchecked|while)\>"
+color cyan "\<(abstract|class|const|delegate|enum|event|explicit|extern|implicit|in|internal|interface|namespace|operator|out|override|params|private|protected|public|readonly|ref|sealed|sizeof|static|struct|typeof|using|virtual|volatile)\>"
+color red ""[^\"]*""
+color brightblue "\<(true|false|null)\>"
+color blue "//.*"
+color blue start="/\*" end="\*/"
+color brightblue start="/\*\*" end="\*/"
+color brightgreen,green " +$"
+##
+## GCC builtins
+color cyan "__attribute__[[:space:]]*\(\([^)]*\)\)" "__(aligned|asm|builtin|hidden|inline|packed|restrict|section|typeof|weak)__"
+##
+## String highlighting.  You will in general want your comments and
+## strings to come last, because syntax highlighting rules will be
+## applied in the order they are read in.
+color green "<[^= 	]*>" ""(\\.|[^"])*""
+##
+## This string is VERY resource intensive!
+color green start=""(\\.|[^"])*\\[[:space:]]*$" end="^(\\.|[^"])*""
+
+## Comment highlighting
+color brightyellow "//.*"
+color brightyellow start="/\*" end="\*/"
