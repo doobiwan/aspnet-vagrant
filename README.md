@@ -2,7 +2,7 @@
 
 ### Quickstart vagrant file for asp.net vNext development on a Linux VM for Windows.
 
-To get started, install VirtualBox and Vagrant using Chocolatey (https://chocolatey.org/)you'll need a command window, personally I'm a fan of git bash on windows.
+To get started, install VirtualBox and Vagrant using Chocolatey (https://chocolatey.org/) you'll need a command window, personally I'm a fan of git bash on windows.
 
 ```bash
 cinst virtualbox vagrant
